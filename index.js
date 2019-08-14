@@ -16,6 +16,23 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
+app.get('/bcp', (req, res) => {
+    const shop = req.query.shop;
+    if (shop) {
+      const state = nonce();
+      const redirectUri = forwardingAddress + '/bcp/callback';
+      const installUrl = 'https://' + shop +
+        '/admin/oauth/authorize?client_id=' + apiKey +
+        '&scope=' + scopes +
+        '&state=' + state +
+        '&redirect_uri=' + redirectUri;
+  
+      res.cookie('state', state);
+      res.redirect(installUrl);
+    } else {
+      return res.status(400).send('Missing shop parameter. Please add ?shop=your-development-shop.myshopify.com to your request');
+    }
+  });
 
 app.use(express.static('public'))
 app.listen(process.env.PORT || 8000, () => {
