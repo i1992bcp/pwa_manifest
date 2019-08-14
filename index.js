@@ -13,12 +13,23 @@ const scopes = 'read_products';
 const forwardingAddress = "https://pwa-manifest.herokuapp.com"; // Replace this with your HTTPS Forwarding address
 
 app.get('/', (req, res) => {
-  const shopRequestUrl = 'https://cdn.shopify.com/s/files/1/0636/7991/t/96/assets/manifest.json?200402';
-  request.get(shopRequestUrl)
-    .then((data) => {
-        res.status(200).end(data);
-    })
+    var st = {
+        "name": "Best Choice Products",
+        "short_name": "BCP",
+        "start_url": "/?standalone",
+        "background_color": "#d42020",
+        "theme_color": "#fff1e0",
+        "display": "standalone",
+        "icons": [{
+            "src": "https://cdn.shopify.com/s/files/1/0636/7991/files/favicon-logo_2d5fe93a-ae57-43f8-9c1e-7293da43e2ca_110x.png?v=1556227885",
+            "sizes": "192x192",
+            "type": "image/png"
+        }]
+    };
+    res.send(st);
 });
+
+
 
 app.use(express.static('public'))
 app.listen(process.env.PORT || 8000, () => {
