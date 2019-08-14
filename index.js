@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
         "name": "Best Choice Products",
         "short_name": "BCP",
         "theme_color": "#d42020",
-        "background_color": "#2196f3",
+        "background_color": "#ffffff",
         "display": "standalone",
         "Scope": "https://bestchoiceproducts.com/",
         "start_url": "https://bestchoiceproducts.com/",
