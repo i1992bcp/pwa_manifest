@@ -13,7 +13,8 @@ const scopes = 'read_products';
 const forwardingAddress = "https://pwa-manifest.herokuapp.com"; // Replace this with your HTTPS Forwarding address
 
 app.get('/', (req, res) => {
-  res.send('Hello World!', apiKey);
+    var st = 'Hello World!' + apiKey;
+  res.send(st);
 });
 
 app.get('/bcp', (req, res) => {
