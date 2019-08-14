@@ -13,7 +13,7 @@ const scopes = 'read_products';
 const forwardingAddress = "https://pwa-manifest.herokuapp.com"; // Replace this with your HTTPS Forwarding address
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('Hello World!', apiKey);
 });
 
 app.get('/bcp', (req, res) => {
@@ -21,11 +21,7 @@ app.get('/bcp', (req, res) => {
     if (shop) {
       const state = nonce();
       const redirectUri = forwardingAddress + '/bcp/callback';
-      const installUrl = 'https://' + shop +
-        '/admin/oauth/authorize?client_id=' + apiKey +
-        '&scope=' + scopes +
-        '&state=' + state +
-        '&redirect_uri=' + redirectUri;
+      const installUrl = 'https://' + shop +'/admin/oauth/authorize?client_id=' + apiKey +'&scope=' + scopes +'&state=' + state +'&redirect_uri=' + redirectUri;
   
       res.cookie('state', state);
       res.redirect(installUrl);
