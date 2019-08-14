@@ -16,16 +16,55 @@ app.get('/', (req, res) => {
     var st = {
         "name": "Best Choice Products",
         "short_name": "BCP",
-        "start_url": "/?standalone",
-        "background_color": "#d42020",
-        "theme_color": "#fff1e0",
+        "theme_color": "#d42020",
+        "background_color": "#2196f3",
         "display": "standalone",
-        "icons": [{
-            "src": "https://cdn.shopify.com/s/files/1/0636/7991/files/favicon-logo_2d5fe93a-ae57-43f8-9c1e-7293da43e2ca_110x.png?v=1556227885",
+        "Scope": "https://bestchoiceproducts.com/",
+        "start_url": "https://bestchoiceproducts.com/",
+        "icons": [
+          {
+            "src": "./icons/icon-72x72.png",
+            "sizes": "72x72",
+            "type": "image/png"
+          },
+          {
+            "src": "./icons/icon-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+          },
+          {
+            "src": "./icons/icon-128x128.png",
+            "sizes": "128x128",
+            "type": "image/png"
+          },
+          {
+            "src": "./icons/icon-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+          },
+          {
+            "src": "./icons/icon-152x152.png",
+            "sizes": "152x152",
+            "type": "image/png"
+          },
+          {
+            "src": "./icons/icon-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
-        }]
-    };
+          },
+          {
+            "src": "./icons/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+          },
+          {
+            "src": "./icons/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+          }
+        ],
+        "splash_pages": null
+      };
     res.send(st);
 });
 
